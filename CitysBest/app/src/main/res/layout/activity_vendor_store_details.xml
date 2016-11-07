@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="60dip"
+    android:paddingBottom="60dip"
+    android:paddingLeft="30dip"
+    android:paddingRight="20dip">
+
+    <ImageView
+        android:id="@+id/v_store_image"
+        android:layout_width="wrap_content"
+        android:layout_height="500px"
+
+        android:layout_marginBottom="24dp"
+        android:layout_gravity="center_horizontal" />
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1"
+        android:layout_weight="1">
+        <TableRow>
+            <TextView
+                android:text="Store Name"
+                android:padding="3dip" />
+
+            <TextView
+                android:id="@+id/v_store_name"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Store Address"
+                android:padding="3dip" />
+            <TextView
+                android:id="@+id/v_store_address"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Store Timings"
+                android:padding="3dip" />
+            <TextView
+                android:id="@+id/v_store_timings"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Store Contact Info"
+                android:padding="3dip" />
+            <TextView
+                android:id="@+id/v_store_contact"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Category"
+                android:padding="3dip" />
+            <TextView
+                android:id="@+id/v_category"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+    </TableLayout>
+    <Button
+        android:id="@+id/v_edit_store_btn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        android:padding="12dp"
+        android:background="@color/colorPrimary"
+        android:text="Edit"
+        android:onClick="EditStoreDetails"
+        android:textColor="@color/white"/>
+</LinearLayout>
