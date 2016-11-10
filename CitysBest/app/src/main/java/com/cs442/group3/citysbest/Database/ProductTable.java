@@ -25,11 +25,11 @@ public class ProductTable {
 
     private static final String DATABASE_NAME = "CitysBest";
     private static final String PRODUCT_TABLE = "Product";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 4;
 
     private final Context mCtx;
 
-    private static final String DATABASE_CREATE =
+    public static final String PRODUCT_CREATE =
             "CREATE TABLE if not exists " + PRODUCT_TABLE + " (" +
                     PRODUCT_ID + " integer PRIMARY KEY autoincrement," +
                     PRODUCT_NAME + " TEXT," +
@@ -47,9 +47,16 @@ public class ProductTable {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            Log.w(TAG, DATABASE_CREATE);
-            db.execSQL(DATABASE_CREATE);
-
+            db.execSQL(ProductTable.PRODUCT_CREATE);
+            Log.w(TAG, ProductTable.PRODUCT_CREATE);
+            db.execSQL(AccountTable.ACCOUNT_CREATE);
+            Log.w(TAG, AccountTable.ACCOUNT_CREATE);
+            db.execSQL(StoreTable.STORE_CREATE);
+            Log.w(TAG, StoreTable.STORE_CREATE);
+            db.execSQL(OfferTable.OFFER_CREATE);
+            Log.w(TAG, OfferTable.OFFER_CREATE);
+            db.execSQL(CategoryTable.CATEGORY_CREATE);
+            Log.w(TAG, CategoryTable.CATEGORY_CREATE);
         }
 
         @Override
@@ -77,5 +84,31 @@ public class ProductTable {
             mDbHelper.close();
         }
     }
+
+    public long addNewProduct(String name,String price,byte[] data,int s_id)
+    {
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(PRODUCT_NAME,name);
+        initialValues.put(PRODUCT_PRICE,Double.parseDouble(price));
+        initialValues.put(PRODUCT_IMAGE,data);
+        initialValues.put(PRODUCT_STORE_ID,s_id);
+        Log.d("Success","Added");
+        return mDb.insert(PRODUCT_TABLE, null, initialValues);
+    }
+
+    public Cursor getAllProducts(int s_id)
+    {
+        String q="SELECT * FROM " + PRODUCT_TABLE + " WHERE "+PRODUCT_STORE_ID+"="+s_id;
+        Cursor cursor = mDb.rawQuery(q,null);
+        return cursor;
+    }
+    public Cursor getProducts()
+    {
+        String q="Delete  FROM " + PRODUCT_TABLE + " WHERE "+PRODUCT_ID+"="+5;
+        Cursor cursor = mDb.rawQuery(q,null);
+        return cursor;
+    }
+
+
 
 }

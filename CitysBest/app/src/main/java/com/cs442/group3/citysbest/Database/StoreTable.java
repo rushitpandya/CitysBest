@@ -30,11 +30,11 @@ public class StoreTable {
 
     private static final String DATABASE_NAME = "CitysBest";
     private static final String STORE_TABLE = "Store";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 4;
 
     private final Context mCtx;
 
-    private static final String DATABASE_CREATE =
+    public static final String STORE_CREATE =
             "CREATE TABLE if not exists " + STORE_TABLE + " (" +
                     STORE_ID + " integer PRIMARY KEY autoincrement," +
                     STORE_NAME + " TEXT," +
@@ -53,8 +53,17 @@ public class StoreTable {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            Log.w(TAG, DATABASE_CREATE);
-            db.execSQL(DATABASE_CREATE);
+            db.execSQL(ProductTable.PRODUCT_CREATE);
+            Log.w(TAG, ProductTable.PRODUCT_CREATE);
+            db.execSQL(AccountTable.ACCOUNT_CREATE);
+            Log.w(TAG, AccountTable.ACCOUNT_CREATE);
+            db.execSQL(StoreTable.STORE_CREATE);
+            Log.w(TAG, StoreTable.STORE_CREATE);
+            db.execSQL(OfferTable.OFFER_CREATE);
+            Log.w(TAG, OfferTable.OFFER_CREATE);
+            db.execSQL(CategoryTable.CATEGORY_CREATE);
+            Log.w(TAG, CategoryTable.CATEGORY_CREATE);
+
 
         }
 

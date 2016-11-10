@@ -160,7 +160,7 @@ public class VendorEditStoreDetails extends VendorBaseActivity {
         storetable.open();
        long c =storetable.updateStoreDetails(name,address,Double.parseDouble(contactno),c_id,hours,inputData,s_id);
        //c.moveToFirst();
-        if(c !=  -1                                 ) {
+        if(c !=  -1) {
             onSignupSuccess();
         }
         else

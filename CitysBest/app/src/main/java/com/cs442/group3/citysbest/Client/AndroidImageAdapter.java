@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.cs442.group3.citysbest.R;
-/*Added Comment*/
+
 public class AndroidImageAdapter extends PagerAdapter {
     Context mContext;
 
