@@ -65,7 +65,6 @@
             android:id="@+id/vendor_spinner_category"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/arrays"
             android:padding="5dp" />
 
 

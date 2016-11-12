@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cs442.group3.citysbest.Database.CategoryTable;
 import com.cs442.group3.citysbest.Database.SessionManager;
 import com.cs442.group3.citysbest.Database.StoreTable;
 import com.cs442.group3.citysbest.Database.Utils;
@@ -47,11 +48,13 @@ public class VendorStoreDetails extends VendorBaseActivity {
         c_id=c.getInt(c.getColumnIndex(StoreTable.STORE_CATEGORY_ID));
         image=c.getBlob(c.getColumnIndex(StoreTable.STORE_IMAGE));
         img.setImageBitmap(Utils.getImage(image));
+        CategoryTable categorytable=new CategoryTable(this);
+        categorytable.open();
         sname.setText(storename);
         saddress.setText(storeaddress);
         shours.setText(storeworkinghours);
         contactno.setText(contact);
-        category.setText(c_id+"");
+        category.setText(categorytable.getCategory(c_id));
 
     }
 

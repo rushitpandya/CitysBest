@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.cs442.group3.citysbest.Client.LoginActivity;
+import com.cs442.group3.citysbest.Database.CategoryTable;
 import com.cs442.group3.citysbest.Database.SessionManager;
 import com.cs442.group3.citysbest.Database.StoreTable;
 import com.cs442.group3.citysbest.Database.Utils;
@@ -23,6 +25,7 @@ import com.cs442.group3.citysbest.R;
 
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -54,11 +57,19 @@ public class VendorEditStoreDetails extends VendorBaseActivity {
         getLayoutInflater().inflate(R.layout.activity_vendor_edit_store_details, frameLayout1);
         Intent i=getIntent();
         ButterKnife.inject(this);
+        CategoryTable categorytable=new CategoryTable(this);
+        categorytable.open();
+        List<String> categories=categorytable.getAllCategories();
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, categories);
+
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        vspinner.setAdapter(dataAdapter);
         _nameText.setText(i.getStringExtra("sname"));
         _addressText.setText(i.getStringExtra("saddress"));
         _hoursText.setText(i.getStringExtra("shours"));
         _contact.setText(i.getStringExtra("scontact"));
-        vspinner.setSelection(i.getIntExtra("c_id",0));
+        vspinner.setSelection((i.getIntExtra("c_id",0))-1);
         _imgView.setImageBitmap(Utils.getImage(i.getByteArrayExtra("img")));
         inputData=i.getByteArrayExtra("img");
         SessionManager sm=new SessionManager(this);

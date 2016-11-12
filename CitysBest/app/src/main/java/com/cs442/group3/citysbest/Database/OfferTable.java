@@ -11,6 +11,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.Date;
+
 public class OfferTable {
     public static final String OFFER_ID = "_id";
     public static final String OFFER_NAME = "o_name";
@@ -36,7 +38,7 @@ public class OfferTable {
                     OFFER_NAME + " TEXT," +
                     OFFER_OLDPRICE + " REAL," +
                     OFFER_NEWPRICE + " REAL," +
-                    OFFER_DATE + " DATE," +
+                    OFFER_DATE + " DEFAULT CURRENT_TIMESTAMP," +
                     OFFER_IMAGE + " BLOB," +
                     OFFER_STORE_ID + " integer)" ;
 
@@ -88,4 +90,56 @@ public class OfferTable {
         }
     }
 
+    public long addNewOffer(String name, String newprice, String oldprice, String date, byte[] data, int s_id)
+    {
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(OFFER_NAME,name);
+        initialValues.put(OFFER_OLDPRICE,Double.parseDouble(oldprice));
+        initialValues.put(OFFER_NEWPRICE,Double.parseDouble(newprice));
+        initialValues.put(OFFER_IMAGE,data);
+        initialValues.put(OFFER_DATE,date);
+        initialValues.put(OFFER_STORE_ID,s_id);
+        Log.d("Success","Added");
+        return mDb.insert(OFFER_TABLE, null, initialValues);
+    }
+
+    public Cursor getOffer(int o_id)
+    {
+        String q="SELECT * FROM " + OFFER_TABLE + " WHERE "+OFFER_ID+"="+o_id;
+        Cursor cursor = mDb.rawQuery(q,null);
+        return cursor;
+    }
+
+    public Cursor getAllOffers(int s_id)
+    {
+        String q="SELECT * FROM " + OFFER_TABLE + " WHERE "+OFFER_STORE_ID+"="+s_id;
+        Cursor cursor = mDb.rawQuery(q,null);
+        return cursor;
+    }
+
+    public boolean deleteOffer(int oid)
+    {
+        /*String q="DELETE  FROM " + PRODUCT_TABLE + " WHERE "+PRODUCT_ID+"="+pid;
+        Cursor cursor = mDb.rawQuery(q,null);
+        return cursor;*/
+        return mDb.delete(OFFER_TABLE, OFFER_ID + "=" + oid, null) > 0;
+
+    }
+
+    public long updateOfferDetails(String name, String newprice, String oldprice, String date, byte[] data, int s_id,int o_id)
+    {
+        /*String q="UPDATE " + STORE_TABLE + " SET "+STORE_NAME+" = \""+name+"\","+STORE_ADDRESS+" = \""+address+"\","+STORE_CONTACT+"="+cno+","+STORE_HOURS+" = \""+hours+"\","+STORE_IMAGE+"="+data+" WHERE "+STORE_ID+"="+s_id;
+       Cursor cursor  = mDbHelper.getWritableDatabase().rawQuery(q,null);
+        */
+
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(OFFER_NAME,name);
+        initialValues.put(OFFER_OLDPRICE,Double.parseDouble(oldprice));
+        initialValues.put(OFFER_NEWPRICE,Double.parseDouble(newprice));
+        initialValues.put(OFFER_IMAGE,data);
+        initialValues.put(OFFER_DATE,date);
+        initialValues.put(OFFER_STORE_ID,s_id);
+        long id=mDb.update(OFFER_TABLE, initialValues, "_id="+o_id, null);
+        return id;
+    }
 }

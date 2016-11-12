@@ -9,7 +9,11 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.provider.ContactsContract;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class      CategoryTable {
 
@@ -79,5 +83,49 @@ public class      CategoryTable {
         if (mDbHelper != null) {
             mDbHelper.close();
         }
+    }
+
+    public String getCategory(int c_id)
+    {
+        String cname="";
+        String selectQuery = "SELECT  * FROM " + CATEGORY_TABLE + " WHERE "+CATEGORY_ID+"="+c_id;
+        Cursor cursor = mDb.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                cname=cursor.getString(cursor.getColumnIndex(CategoryTable.CATEGORY_NAME));
+            } while (cursor.moveToNext());
+        }
+
+        // closing connection
+        cursor.close();
+        mDb.close();// returning lables
+        return cname;
+    }
+
+    public List<String> getAllCategories(){
+        List<String> labels = new ArrayList<String>();
+
+        String selectQuery = "SELECT  * FROM " + CATEGORY_TABLE;
+        Cursor cursor = mDb.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                labels.add(cursor.getString(cursor.getColumnIndex(CategoryTable.CATEGORY_NAME)));
+            } while (cursor.moveToNext());
+        }
+
+        // closing connection
+        cursor.close();
+        mDb.close();// returning lables
+        return labels;
+    }
+
+    public long AddNew(String c_name,byte[] image)
+    {
+        ContentValues cv=new ContentValues();
+        cv.put(CATEGORY_NAME,c_name);
+        cv.put(CATEGORY_IMAGE,image);
+        Log.d("Success","Added");
+        return mDb.insert(CATEGORY_TABLE, null,cv);
     }
 }

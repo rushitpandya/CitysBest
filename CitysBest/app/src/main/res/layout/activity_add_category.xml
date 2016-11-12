@@ -12,64 +12,53 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:layout_marginBottom="1dp">
-        <EditText android:id="@+id/v_edit_product_name1"
+        <EditText android:id="@+id/add_category_name1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapWords"
-            android:hint="Product Name"
+            android:hint="Category Name"
             />
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp">
-        <EditText android:id="@+id/v_edit_product_price1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textCapWords"
-            android:hint="Product Price"
-            />
-    </android.support.design.widget.TextInputLayout>
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Product Image"
+        android:text="Category Image"
         android:textSize="18dip"
         android:paddingLeft="10px"
         android:layout_marginTop="1dp"
         android:layout_marginBottom="1dp"
         />
     <ImageView
-        android:id="@+id/v_edit_product_image1"
+        android:id="@+id/category_add_image1"
         android:layout_width="wrap_content"
         android:layout_height="500px"
         android:layout_gravity="center_horizontal"
         />
 
     <Button
-        android:id="@+id/p_edit_image_upload1"
+        android:id="@+id/cat_upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="loadImageFromGallery"
         android:text="Change Picture" >
     </Button>
+
     <Button
-        android:id="@+id/v_edit_product_btn1"
+        android:id="@+id/btn_category1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:layout_marginBottom="1dp"
         android:padding="12dp"
         android:background="@color/colorPrimary"
-        android:text="Save"
+        android:text="Add"
         android:textColor="@color/white"
         android:layout_weight="0"
-
-        />
+       />
 
 
 

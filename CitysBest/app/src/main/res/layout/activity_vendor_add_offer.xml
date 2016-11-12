@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -54,9 +60,20 @@
         android:layout_marginTop="1dp"
         android:layout_marginBottom="1dp"
         />
-    <DatePicker
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="100dip"></DatePicker>
+        android:layout_height="wrap_content"
+        android:id="@+id/dateview"
+        android:layout_gravity="center_horizontal"
+        />
+    <Button
+        android:id="@+id/datebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="setDate"
+        android:text="Pick Date"
+        android:layout_gravity="center_horizontal"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,13 +86,21 @@
     <ImageView
         android:id="@+id/v_add_offer_image"
         android:layout_width="wrap_content"
-        android:layout_height="100dip"
+        android:layout_height="500px"
         android:layout_gravity="center_horizontal"
-        android:padding="60px"
-        android:src="@drawable/logo" />
+        />
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/v_add_new_product_btn"
+    <Button
+        android:id="@+id/o_add_image_upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="loadImageFromGallery"
+        android:text="Change Picture" >
+    </Button>
+
+    <Button
+        android:id="@+id/v_add_new_offer_btn"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
@@ -84,9 +109,9 @@
         android:background="@color/colorPrimary"
         android:text="Add"
         android:textColor="@color/white"
-        android:layout_weight="0"
+
         android:onClick="AddNewOffer"/>
 
 
-
 </LinearLayout>
+    </ScrollView>

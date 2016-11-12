@@ -102,11 +102,35 @@ public class ProductTable {
         Cursor cursor = mDb.rawQuery(q,null);
         return cursor;
     }
-    public Cursor getProducts()
+    public Cursor getProduct(int p_id)
     {
-        String q="Delete  FROM " + PRODUCT_TABLE + " WHERE "+PRODUCT_ID+"="+5;
+        String q="SELECT * FROM " + PRODUCT_TABLE + " WHERE "+PRODUCT_ID+"="+p_id;
         Cursor cursor = mDb.rawQuery(q,null);
         return cursor;
+    }
+
+    public long updateProductDetails(String name,String price,byte[] data,int p_id,int s_id)
+    {
+        /*String q="UPDATE " + STORE_TABLE + " SET "+STORE_NAME+" = \""+name+"\","+STORE_ADDRESS+" = \""+address+"\","+STORE_CONTACT+"="+cno+","+STORE_HOURS+" = \""+hours+"\","+STORE_IMAGE+"="+data+" WHERE "+STORE_ID+"="+s_id;
+       Cursor cursor  = mDbHelper.getWritableDatabase().rawQuery(q,null);
+        */
+
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(PRODUCT_NAME,name);
+        initialValues.put(PRODUCT_PRICE,price);
+        initialValues.put(PRODUCT_IMAGE,data);
+        initialValues.put(PRODUCT_STORE_ID,s_id);
+        long id=mDb.update(PRODUCT_TABLE, initialValues, "_id="+p_id, null);
+        return id;
+    }
+
+    public boolean deleteProduct(int pid)
+    {
+        /*String q="DELETE  FROM " + PRODUCT_TABLE + " WHERE "+PRODUCT_ID+"="+pid;
+        Cursor cursor = mDb.rawQuery(q,null);
+        return cursor;*/
+        return mDb.delete(PRODUCT_TABLE, PRODUCT_ID + "=" + pid, null) > 0;
+
     }
 
 

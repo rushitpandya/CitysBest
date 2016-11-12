@@ -93,6 +93,7 @@ public class VendorProductDetails extends VendorBaseActivity {
 
              LinearLayout.LayoutParams cllp1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
              LinearLayout cll1 = new LinearLayout(this);
+             cllp1.gravity=Gravity.CENTER_HORIZONTAL;
              cll1.setLayoutParams(cllp1);
              cll1.setOrientation(LinearLayout.HORIZONTAL);
 
@@ -230,7 +231,7 @@ public class VendorProductDetails extends VendorBaseActivity {
         @Override
         public void onClick(View v) {
 
-            Intent i=new Intent(getApplicationContext(),VendorEditProduct.class);
+            Intent i=new Intent(getApplicationContext(),VendorDeleteProduct.class);
             i.putExtra("id",v.getId());
             startActivity(i);
 

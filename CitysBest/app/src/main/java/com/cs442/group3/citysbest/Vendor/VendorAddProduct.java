@@ -49,7 +49,6 @@ public class VendorAddProduct extends VendorBaseActivity {
         HashMap<String,String> storedetails=sm.getUserDetails();
         s_id=Integer.parseInt(storedetails.get(SessionManager.KEY_STORE_ID));
 
-
     }
 
     public void AddNewProduct(View v)

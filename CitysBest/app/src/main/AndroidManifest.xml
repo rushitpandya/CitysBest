@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cs442.group3.citysbest">
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -33,7 +35,11 @@
         <activity android:name=".Vendor.VendorAddProduct" />
         <activity android:name=".Vendor.VendorEditProduct" />
         <activity android:name=".Vendor.VendorAddOffer" />
-        <activity android:name=".Vendor.VendorEditOffer"></activity>
+        <activity android:name=".Vendor.VendorEditOffer" />
+        <activity android:name=".Vendor.VendorDeleteProduct" />
+        <activity android:name=".AddCategory">
+
+        </activity>
     </application>
 
 </manifest>

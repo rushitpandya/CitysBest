@@ -5,11 +5,13 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.provider.CalendarContract;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -29,12 +31,14 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 import com.cs442.group3.citysbest.Database.AccountTable;
+import com.cs442.group3.citysbest.Database.CategoryTable;
 import com.cs442.group3.citysbest.Database.StoreTable;
 import com.cs442.group3.citysbest.Database.Utils;
 import com.cs442.group3.citysbest.R;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.List;
 
 public class
 RegistrationActivity extends BaseActivity {
@@ -59,6 +63,7 @@ RegistrationActivity extends BaseActivity {
     TextView _loginLink;
     @InjectView(R.id.spinner_category) Spinner spinner_category;
     int c_id;
+
     public void loadImageFromGallery(View view) {
         Intent galleryIntent = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -93,7 +98,14 @@ RegistrationActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         getLayoutInflater().inflate(R.layout.activity_registration, frameLayout);
         ButterKnife.inject(this);
+        CategoryTable categorytable=new CategoryTable(this);
+        categorytable.open();
+        List<String> categories=categorytable.getAllCategories();
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, categories);
 
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_category.setAdapter(dataAdapter);
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
