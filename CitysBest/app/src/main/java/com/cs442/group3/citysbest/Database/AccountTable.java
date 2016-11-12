@@ -101,4 +101,20 @@ public class AccountTable {
         return mDb.insert(ACCOUNT_TABLE, null, initialValues);
     }
 
+    public long changeUsername(int aid,String name)
+    {
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(ACCOUNT_USERNAME,name);
+        long id=mDb.update(ACCOUNT_TABLE, initialValues, "_id="+aid, null);
+        return id;
+    }
+
+    public long changePassword(int aid,String password)
+    {
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(ACCOUNT_PASSWORD,password);
+        long id=mDb.update(ACCOUNT_TABLE, initialValues, "_id="+aid, null);
+        return id;
+    }
+
 }

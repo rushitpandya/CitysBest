@@ -78,9 +78,11 @@ public class LoginActivity extends BaseActivity {
                         int categoryid = Integer.parseInt(cursor.getString(cursor
                                 .getColumnIndex(AccountTable.ACCOUNT_CATEGORY_ID)));
 
+                        int aid = Integer.parseInt(cursor.getString(cursor
+                                .getColumnIndex(AccountTable.ACCOUNT_ID)));
 
                         if (username.equals(cusername) && password.equals(cpassword)) {
-                            session.createLoginSession(cusername, storeid, categoryid);
+                            session.createLoginSession(cusername, storeid, categoryid,cpassword,aid);
                             Intent i = new Intent(getApplicationContext(), VendorStoreDetails.class);
                             startActivity(i);
                             finish();

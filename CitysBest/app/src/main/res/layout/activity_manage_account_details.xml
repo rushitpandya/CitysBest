@@ -17,20 +17,21 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:layout_marginBottom="1dp">
-        <EditText android:id="@+id/txtUsername"
+        <EditText android:id="@+id/txtUsername1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:hint="Enter A New Username" />
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.v7.widget.AppCompatButton
+    <Button
         android:id="@+id/newusername"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:layout_marginBottom="1dp"
         android:padding="12dp"
+        android:onClick="ChangeUsername"
         android:background="@color/colorPrimary"
         android:text="Update Username"
         android:textColor="@color/white"/>
@@ -41,7 +42,7 @@
         android:paddingTop="40dip"
         android:layout_marginTop="1dp"
         android:layout_marginBottom="1dp">
-        <EditText android:id="@+id/txtOldPassword"
+        <EditText android:id="@+id/txtOldPassword1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -53,15 +54,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:layout_marginBottom="1dp">
-        <EditText android:id="@+id/txtNewPassword"
+        <EditText android:id="@+id/txtNewPassword1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:hint="New Password"/>
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btnLogin"
+    <Button
+        android:id="@+id/btnLogin1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
@@ -69,6 +70,7 @@
         android:padding="12dp"
         android:background="@color/colorPrimary"
         android:text="Change Password"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:onClick="ChangePassword"/>
 
 </LinearLayout>

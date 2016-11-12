@@ -30,10 +30,11 @@ public class   SessionManager {
 
     // User name (make variable public to access from outside)
     public static final String KEY_NAME = "username";
-
+    public static final String KEY_PASSWORD = "password";
     // Email address (make variable public to access from outside)
     public static final String KEY_STORE_ID = "storeid";
     public static final String KEY_CATEGORY_ID = "categoryid";
+    public static final String KEY_AID = "accountid";
     // Constructor
     public SessionManager(Context context){
         this._context = context;
@@ -44,17 +45,17 @@ public class   SessionManager {
     /**
      * Create login session
      * */
-    public void createLoginSession(String name, int storeid,int categoryid){
+    public void createLoginSession(String name, int storeid,int categoryid,String pass,int aid){
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
 
         // Storing name in pref
         editor.putString(KEY_NAME, name);
-
+        editor.putString(KEY_NAME, pass);
         // Storing email in pref
         editor.putInt(KEY_STORE_ID, storeid);
         editor.putInt(KEY_CATEGORY_ID, categoryid);
-
+        editor.putInt(KEY_AID, aid);
         editor.commit();
     }
 
@@ -84,8 +85,10 @@ public class   SessionManager {
     public HashMap<String, String> getUserDetails(){
         HashMap<String, String> user = new HashMap<String, String>();
         user.put(KEY_NAME, pref.getString(KEY_NAME, null));
+        user.put(KEY_PASSWORD, pref.getString(KEY_PASSWORD, null));
         user.put(KEY_STORE_ID, (pref.getInt(KEY_STORE_ID,0))+"");
         user.put(KEY_CATEGORY_ID, (pref.getInt(KEY_CATEGORY_ID,0))+"");
+        user.put(KEY_AID, (pref.getInt(KEY_AID,0))+"");
         return user;
     }
 
