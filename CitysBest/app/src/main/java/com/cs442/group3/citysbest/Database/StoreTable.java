@@ -30,7 +30,7 @@ public class StoreTable {
 
     private static final String DATABASE_NAME = "CitysBest";
     private static final String STORE_TABLE = "Store";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
 
     private final Context mCtx;
 
@@ -97,6 +97,81 @@ public class StoreTable {
     public Cursor getStoreDetails(int s_id)
     {
         String q="SELECT * FROM " + STORE_TABLE + " WHERE "+STORE_ID+"="+s_id;
+        Cursor cursor = mDbHelper.getWritableDatabase().rawQuery(q,null);
+        return cursor;
+    }
+
+    public String getStoreName(int s_id)
+    {
+        String sname="";
+        String selectQuery = "SELECT  * FROM " + STORE_TABLE + " WHERE "+STORE_ID+"="+s_id;
+        Cursor cursor = mDb.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                sname=cursor.getString(cursor.getColumnIndex(StoreTable.STORE_NAME));
+            } while (cursor.moveToNext());
+        }
+
+        // closing connection
+        cursor.close();
+        mDb.close();// returning lables
+        return sname;
+    }
+
+    public String getStoreTime(int s_id)
+    {
+        String sname="";
+        String selectQuery = "SELECT  * FROM " + STORE_TABLE + " WHERE "+STORE_ID+"="+s_id;
+        Cursor cursor = mDb.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                sname=cursor.getString(cursor.getColumnIndex(StoreTable.STORE_HOURS));
+            } while (cursor.moveToNext());
+        }
+
+        // closing connection
+        cursor.close();
+        mDb.close();// returning lables
+        return sname;
+    }
+
+    public String getStoreAddress(int s_id)
+    {
+        String sname="";
+        String selectQuery = "SELECT  * FROM " + STORE_TABLE + " WHERE "+STORE_ID+"="+s_id;
+        Cursor cursor = mDb.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                sname=cursor.getString(cursor.getColumnIndex(StoreTable.STORE_ADDRESS));
+            } while (cursor.moveToNext());
+        }
+
+        // closing connection
+        cursor.close();
+        mDb.close();// returning lables
+        return sname;
+    }
+
+    public String getStoreContact(int s_id)
+    {
+        String sname="";
+        String selectQuery = "SELECT  * FROM " + STORE_TABLE + " WHERE "+STORE_ID+"="+s_id;
+        Cursor cursor = mDb.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                sname=cursor.getString(cursor.getColumnIndex(StoreTable.STORE_CONTACT));
+            } while (cursor.moveToNext());
+        }
+
+        // closing connection
+        cursor.close();
+        mDb.close();// returning lables
+        return sname;
+    }
+
+    public Cursor getStoresFromCategoryID(int c_id)
+    {
+        String q="SELECT * FROM " + STORE_TABLE + " WHERE "+STORE_CATEGORY_ID+"="+c_id;
         Cursor cursor = mDbHelper.getWritableDatabase().rawQuery(q,null);
         return cursor;
     }

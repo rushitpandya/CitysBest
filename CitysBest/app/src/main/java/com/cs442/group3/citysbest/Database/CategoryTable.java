@@ -15,7 +15,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-public class      CategoryTable {
+public class    CategoryTable {
 
     public static final String CATEGORY_ID = "_id";
     public static final String CATEGORY_NAME = "c_name";
@@ -26,7 +26,7 @@ public class      CategoryTable {
 
     private static final String DATABASE_NAME = "CitysBest";
     private static final String CATEGORY_TABLE = "Category";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
 
     private final Context mCtx;
 

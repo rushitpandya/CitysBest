@@ -24,7 +24,7 @@ public class AccountTable {
 
     private static final String DATABASE_NAME = "CitysBest";
     private static final String ACCOUNT_TABLE = "Accounts";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
 
     private final Context mCtx;
 

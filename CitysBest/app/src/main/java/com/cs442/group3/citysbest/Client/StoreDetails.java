@@ -10,8 +10,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
+import android.widget.TextView;
 
+import com.cs442.group3.citysbest.Database.StoreTable;
 import com.cs442.group3.citysbest.R;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +25,34 @@ public class StoreDetails extends BaseActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    StoreTable storeTable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getLayoutInflater().inflate(R.layout.activity_store_details, frameLayout);
+
+        storeTable = new StoreTable(getApplicationContext());
+        storeTable.open();
+
+        Intent receiver = getIntent();
+        int s_id = receiver.getIntExtra("s_id", 400);
+
+        TextView storeName = (TextView) findViewById(R.id.store_name);
+        storeName.setText(storeTable.getStoreName(s_id));
+        storeTable.open();
+
+        TextView storeContact = (TextView) findViewById(R.id.store_contact_no);
+        storeContact.setText(storeTable.getStoreContact(s_id));
+        storeTable.open();
+
+        TextView storeAddress = (TextView) findViewById(R.id.store_address);
+        storeAddress.setText(storeTable.getStoreAddress(s_id));
+        storeTable.open();
+
+        TextView storeTiming = (TextView) findViewById(R.id.store_timings);
+        storeTiming.setText(storeTable.getStoreTime(s_id));
+
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
         tabLayout = (TabLayout) findViewById(R.id.tabs);

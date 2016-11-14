@@ -15,9 +15,11 @@
         <TableRow>
             <TextView
                 android:text="Store Name"
+                android:id="@+id/store_name"
                 android:padding="3dip" />
             <TextView
                 android:text="Contact Number"
+                android:id="@+id/store_contact_no"
                 android:gravity="right"
                 android:padding="3dip" />
         </TableRow>
@@ -25,9 +27,11 @@
         <TableRow>
             <TextView
                 android:text="Store Timings"
+                android:id="@+id/store_timings"
                 android:padding="3dip" />
             <TextView
                 android:text="Store Address"
+                android:id="@+id/store_address"
                 android:gravity="right"
                 android:padding="3dip" />
         </TableRow>

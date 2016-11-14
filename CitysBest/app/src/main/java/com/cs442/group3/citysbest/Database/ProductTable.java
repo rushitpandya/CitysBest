@@ -25,7 +25,7 @@ public class ProductTable {
 
     private static final String DATABASE_NAME = "CitysBest";
     private static final String PRODUCT_TABLE = "Product";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
 
     private final Context mCtx;
 

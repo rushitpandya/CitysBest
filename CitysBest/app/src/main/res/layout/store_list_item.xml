@@ -20,15 +20,19 @@
         android:text="Store"
         android:layout_weight="1.2"
         android:singleLine="true"
-        android:layout_marginBottom="5dip"/>
+        android:layout_marginBottom="5dip"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:textAllCaps="false" />
 
     <TextView
         android:id="@+id/store_miles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="miles"
-        android:layout_weight="0.2"
+        android:layout_weight="0.68"
         android:singleLine="true"
-        android:layout_marginBottom="5dip"/>
+        android:layout_marginBottom="5dip"
+        android:textSize="20sp" />
 
 </LinearLayout>

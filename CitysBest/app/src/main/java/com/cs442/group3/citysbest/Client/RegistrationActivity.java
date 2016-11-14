@@ -133,6 +133,24 @@ RegistrationActivity extends BaseActivity {
 
         }
         });
+
+        // YUP THIS IS A CHANGE!!!
+        // added this
+        // added this
+        // added this
+        // REMOVE THIS ON DEMO!!!!
+        // added this
+        // added this
+        // added this
+        // added this
+        // added this
+        selectedImage = Uri.parse("android.resource://com.cs442.group3.citysbest/drawable/image1");
+        // added this
+        // added this
+        // added this
+        // added this
+        // added this
+
     }
 
     public void signup() {

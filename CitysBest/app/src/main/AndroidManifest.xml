@@ -10,6 +10,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+
+        <!--<activity-->
+            <!--android:name=".AddCategory"-->
+            <!--android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+
         <activity
             android:name=".Client.LogoActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
@@ -19,6 +31,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+
         <activity android:name=".Client.LoginActivity" />
         <activity android:name=".Client.BaseActivity" />
         <activity android:name=".Client.RegistrationActivity" />
@@ -37,6 +52,7 @@
         <activity android:name=".Vendor.VendorAddOffer" />
         <activity android:name=".Vendor.VendorEditOffer" />
         <activity android:name=".Vendor.VendorDeleteProduct" />
+
         <activity android:name=".AddCategory">
 
         </activity>
