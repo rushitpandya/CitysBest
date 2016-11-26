@@ -8,10 +8,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
 
+import com.cs442.group3.citysbest.Database.CategoryTable;
 import com.cs442.group3.citysbest.Database.StoreTable;
 import com.cs442.group3.citysbest.R;
 
@@ -37,22 +39,27 @@ public class StoreDetails extends BaseActivity {
 
         Intent receiver = getIntent();
         int s_id = receiver.getIntExtra("s_id", 400);
-
-        TextView storeName = (TextView) findViewById(R.id.store_name);
+        int c_id = receiver.getIntExtra("c_id", 400);
+        TextView storeName = (TextView) findViewById(R.id.store_name1);
         storeName.setText(storeTable.getStoreName(s_id));
-        storeTable.open();
-
-        TextView storeContact = (TextView) findViewById(R.id.store_contact_no);
+       // storeTable.open();
+        Log.d("name",storeTable.getStoreName(s_id));
+        Log.d("id",s_id+"");
+        TextView storeContact = (TextView) findViewById(R.id.store_contact_no1);
         storeContact.setText(storeTable.getStoreContact(s_id));
-        storeTable.open();
+       // storeTable.open();
 
-        TextView storeAddress = (TextView) findViewById(R.id.store_address);
+        TextView storeAddress = (TextView) findViewById(R.id.store_address1);
         storeAddress.setText(storeTable.getStoreAddress(s_id));
-        storeTable.open();
+        //storeTable.open();
 
-        TextView storeTiming = (TextView) findViewById(R.id.store_timings);
+        TextView storeTiming = (TextView) findViewById(R.id.store_timings1);
         storeTiming.setText(storeTable.getStoreTime(s_id));
 
+        TextView cname = (TextView) findViewById(R.id.categoryname1);
+        CategoryTable categorytable=new CategoryTable(this);
+        categorytable.open();
+        cname.setText(categorytable.getCategory(c_id));
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
         tabLayout = (TabLayout) findViewById(R.id.tabs);

@@ -23,7 +23,7 @@ public class BaseActivity extends AppCompatActivity {
 
     protected ListView mDrawerList;
 
-    protected String[] listArray = { "Vendor Registration", "Vendor Login", "Category", "Products", "Offers & Deals" };
+    protected String[] listArray = { "Vendor Registration", "Vendor Login", "Category"};
 
     protected static int position;
 

@@ -47,7 +47,7 @@ public class StoreCursorAdapter extends CursorAdapter {
 
         TextView phoneNo = (TextView) view.findViewById(R.id.store_miles);
         //phoneNo.setText(String.format("%.0f", Integer.parseInt(cursor.getString(cursor.getColumnIndex(StoreTable.STORE_CONTACT)))));
-        phoneNo.setText(cursor.getString(cursor.getColumnIndex(StoreTable.STORE_HOURS)));
+        phoneNo.setText(cursor.getLong(cursor.getColumnIndex(StoreTable.STORE_CONTACT))+"");
 
     }
 }

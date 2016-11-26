@@ -1,13 +1,18 @@
 package com.cs442.group3.citysbest.Client;
 
 import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
+import com.cs442.group3.citysbest.Database.ProductTable;
 import com.cs442.group3.citysbest.R;
 
 /**
@@ -65,7 +70,19 @@ public class ProductFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_product, container, false);
+        View v=inflater.inflate(R.layout.fragment_product, container, false);
+        Intent i=getActivity().getIntent();
+
+        int s_id=i.getIntExtra("s_id",0);
+        Log.d("s_id",s_id+"");
+        ProductTable producttable=new ProductTable(getActivity());
+        producttable.open();
+        Cursor myProductCursor = producttable.getAllProducts(s_id);
+        ProductCursorAdapter myAdapter = new ProductCursorAdapter(getActivity(), myProductCursor, 0);
+
+        ListView yourListView = (ListView) v.findViewById(R.id.product_list);
+        yourListView.setAdapter(myAdapter);
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

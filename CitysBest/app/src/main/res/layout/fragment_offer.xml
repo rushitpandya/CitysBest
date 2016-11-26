@@ -5,9 +5,12 @@
     tools:context="com.cs442.group3.citysbest.Client.OfferFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/offer_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Coming Soon" />
+        android:layout_height="wrap_content"
+
+
+        />
 
 </FrameLayout>

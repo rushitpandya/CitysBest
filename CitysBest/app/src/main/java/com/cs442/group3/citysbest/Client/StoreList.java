@@ -42,7 +42,7 @@ public class StoreList extends BaseActivity {
         // Getting the Cursor from the getStoresFromCategory method I created
         Cursor myStoresCursor = storeTable.getStoresFromCategoryID(c_id);
         myAdapter = new StoreCursorAdapter(this, myStoresCursor, 0);
-        // Attaching the custom adapter to the
+
         ListView yourListView = (ListView) findViewById(R.id.store_list);
         yourListView.setAdapter(myAdapter);
 
@@ -50,48 +50,13 @@ public class StoreList extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i=new Intent(getApplicationContext(),StoreDetails.class);
-                i.putExtra("s_id", position+1);
+                i.putExtra("s_id", Integer.parseInt(id+""));
+                i.putExtra("c_id", c_id);
                 startActivity(i);
                 //Log.d("Store-Test", storeTable.getStore(position+1));
             }
         });
     }
-    class ListAdapter extends ArrayAdapter<String> {
 
-        public ListAdapter(Context context, int textViewResourceId) {
-            super(context, textViewResourceId);
-            // TODO Auto-generated constructor stub
-        }
-
-        private List<String> items;
-
-        public ListAdapter(Context context, int resource, List<String> items) {
-
-            super(context, resource, items);
-
-            this.items = items;
-
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-            View v = convertView;
-
-            if (v == null) {
-
-                LayoutInflater vi;
-                vi = LayoutInflater.from(getContext());
-                v = vi.inflate(R.layout.store_list_item, null);
-
-            }
-                TextView tt = (TextView) v.findViewById(R.id.store_name);
-                if (tt != null) {
-                    tt.setText(items.get(position));
-                }
-            return v;
-
-        }
-    }
 
 }

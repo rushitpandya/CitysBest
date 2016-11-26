@@ -41,10 +41,6 @@ public class VendorProductDetails extends VendorBaseActivity {
         producttable=new ProductTable(this);
         producttable.open();
 
-        /*Cursor cursor1=producttable.getProducts();
-        Log.d("count:",cursor1.getCount()+"");
-*/
-
         Cursor cursor=producttable.getAllProducts(s_id);
         cursor.moveToFirst();
 

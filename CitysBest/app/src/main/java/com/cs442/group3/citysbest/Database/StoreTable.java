@@ -30,7 +30,7 @@ public class StoreTable {
 
     private static final String DATABASE_NAME = "CitysBest";
     private static final String STORE_TABLE = "Store";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
 
     private final Context mCtx;
 
@@ -113,8 +113,8 @@ public class StoreTable {
         }
 
         // closing connection
-        cursor.close();
-        mDb.close();// returning lables
+        //cursor.close();
+        //mDb.close();// returning lables
         return sname;
     }
 
@@ -130,8 +130,8 @@ public class StoreTable {
         }
 
         // closing connection
-        cursor.close();
-        mDb.close();// returning lables
+        //cursor.close();
+        //mDb.close();// returning lables
         return sname;
     }
 
@@ -147,8 +147,8 @@ public class StoreTable {
         }
 
         // closing connection
-        cursor.close();
-        mDb.close();// returning lables
+        //cursor.close();
+        //mDb.close();// returning lables
         return sname;
     }
 
@@ -159,13 +159,13 @@ public class StoreTable {
         Cursor cursor = mDb.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
             do {
-                sname=cursor.getString(cursor.getColumnIndex(StoreTable.STORE_CONTACT));
+                sname=cursor.getLong(cursor.getColumnIndex(StoreTable.STORE_CONTACT))+"";
             } while (cursor.moveToNext());
         }
 
         // closing connection
-        cursor.close();
-        mDb.close();// returning lables
+     //   cursor.close();
+       // mDb.close();// returning lables
         return sname;
     }
 

@@ -26,7 +26,7 @@ public class    CategoryTable {
 
     private static final String DATABASE_NAME = "CitysBest";
     private static final String CATEGORY_TABLE = "Category";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
 
     private final Context mCtx;
 
@@ -118,6 +118,13 @@ public class    CategoryTable {
         cursor.close();
         mDb.close();// returning lables
         return labels;
+    }
+
+    public Cursor getAllCategoriesCursor()
+    {
+        String selectQuery = "SELECT  * FROM " + CATEGORY_TABLE;
+        Cursor cursor = mDb.rawQuery(selectQuery, null);
+        return  cursor;
     }
 
     public long AddNew(String c_name,byte[] image)

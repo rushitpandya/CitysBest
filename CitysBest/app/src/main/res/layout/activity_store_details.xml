@@ -7,42 +7,83 @@
     android:orientation="vertical"
     android:padding="10dip">
 
-
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:stretchColumns="1">
+        android:stretchColumns="1"
+      >
         <TableRow>
             <TextView
                 android:text="Store Name"
-                android:id="@+id/store_name"
+                android:padding="3dip" />
+
+            <TextView
+                android:id="@+id/store_name1"
+                android:gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dip"  />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Store Address"
                 android:padding="3dip" />
             <TextView
-                android:text="Contact Number"
-                android:id="@+id/store_contact_no"
-                android:gravity="right"
+                android:id="@+id/store_address1"
+                android:gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:padding="3dip" />
         </TableRow>
 
         <TableRow>
             <TextView
                 android:text="Store Timings"
-                android:id="@+id/store_timings"
                 android:padding="3dip" />
             <TextView
-                android:text="Store Address"
-                android:id="@+id/store_address"
-                android:gravity="right"
+                android:id="@+id/store_timings1"
+                android:gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:padding="3dip" />
         </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Store Contact Info"
+                android:padding="3dip" />
+            <TextView
+                android:id="@+id/store_contact_no1"
+                android:gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dip" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Category"
+                android:padding="3dip" />
+            <TextView
+                android:id="@+id/categoryname1"
+                android:gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dip"  />
+        </TableRow>
     </TableLayout>
+
+
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabMode="fixed"
-        app:tabGravity="fill"/>
+        app:tabGravity="fill"
+        android:background="@color/jumbo"
+        app:tabTextColor="@color/white"
+        android:layout_marginTop="20dp"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
