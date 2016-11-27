@@ -29,8 +29,8 @@ public class StoreTable {
     private SQLiteDatabase mDb;
 
     private static final String DATABASE_NAME = "CitysBest";
-    private static final String STORE_TABLE = "Store";
-    private static final int DATABASE_VERSION = 6;
+    public static final String STORE_TABLE = "Store";
+    private static final int DATABASE_VERSION = 7;
 
     private final Context mCtx;
 
@@ -71,7 +71,11 @@ public class StoreTable {
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
                     + newVersion + ", which will destroy all old data");
-            db.execSQL("DROP TABLE IF EXISTS " + STORE_TABLE);
+            db.execSQL("DROP TABLE IF EXISTS " + AccountTable.ACCOUNT_TABLE);
+            db.execSQL("DROP TABLE IF EXISTS " + CategoryTable.CATEGORY_TABLE);
+            db.execSQL("DROP TABLE IF EXISTS " + StoreTable.STORE_TABLE);
+            db.execSQL("DROP TABLE IF EXISTS " + OfferTable.OFFER_TABLE);
+            db.execSQL("DROP TABLE IF EXISTS " + ProductTable.PRODUCT_TABLE);
             onCreate(db);
         }
     }

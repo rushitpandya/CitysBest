@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.cs442.group3.citysbest.Client.BaseActivity;
 import com.cs442.group3.citysbest.Database.CategoryTable;
 import com.cs442.group3.citysbest.Database.ProductTable;
 import com.cs442.group3.citysbest.Database.Utils;
@@ -19,7 +20,7 @@ import java.io.InputStream;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class AddCategory extends AppCompatActivity {
+public class AddCategory extends BaseActivity {
 
     byte[] inputData;
     @InjectView(R.id.add_category_name1)
@@ -36,13 +37,19 @@ public class AddCategory extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_category);
+        //setContentView(R.layout.activity_add_category);
+        getLayoutInflater().inflate(R.layout.activity_add_category, frameLayout);
         ButterKnife.inject(this);
         categorytable=new CategoryTable(this);
         categorytable.open();
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!validate()) {
+                    onSignupFailed();
+                    return;
+                }
+                add.setEnabled(false);
                 String c_name1=c_name.getText().toString();
                 InputStream iStream = null;
                 try {
@@ -52,6 +59,7 @@ public class AddCategory extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 categorytable.AddNew(c_name1,inputData);
+                add.setEnabled(true);
                 Toast.makeText(getApplicationContext(), "CategoryAdded",
                         Toast.LENGTH_LONG).show();
                 Intent i=new Intent(getApplicationContext(),AddCategory.class);
@@ -89,8 +97,30 @@ public class AddCategory extends AppCompatActivity {
 
     }
 
-    public void AddNewCategory(View v)
-    {
-
+    public void onSignupFailed() {
+        add.setEnabled(true);
     }
+
+    public boolean validate() {
+        boolean valid = true;
+        String name = c_name.getText().toString();
+
+
+
+        if (name.isEmpty()) {
+            c_name.setError("Store Name is required");
+            valid = false;
+        } else {
+            c_name.setError(null);
+        }
+
+        if (selectedImage ==null  ) {
+            Toast.makeText(this, "Please Select a Image", Toast.LENGTH_SHORT).show();
+            valid = false;
+        } else {
+
+        }
+        return valid;
+    }
+
 }

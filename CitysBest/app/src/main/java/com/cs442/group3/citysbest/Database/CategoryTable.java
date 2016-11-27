@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +26,8 @@ public class    CategoryTable {
     private SQLiteDatabase mDb;
 
     private static final String DATABASE_NAME = "CitysBest";
-    private static final String CATEGORY_TABLE = "Category";
-    private static final int DATABASE_VERSION = 6;
+    public static final String CATEGORY_TABLE = "Category";
+    private static final int DATABASE_VERSION = 7;
 
     private final Context mCtx;
 
@@ -63,7 +64,11 @@ public class    CategoryTable {
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
                     + newVersion + ", which will destroy all old data");
-            db.execSQL("DROP TABLE IF EXISTS " + CATEGORY_TABLE);
+            db.execSQL("DROP TABLE IF EXISTS " + AccountTable.ACCOUNT_TABLE);
+            db.execSQL("DROP TABLE IF EXISTS " + CategoryTable.CATEGORY_TABLE);
+            db.execSQL("DROP TABLE IF EXISTS " + StoreTable.STORE_TABLE);
+            db.execSQL("DROP TABLE IF EXISTS " + OfferTable.OFFER_TABLE);
+            db.execSQL("DROP TABLE IF EXISTS " + ProductTable.PRODUCT_TABLE);
             onCreate(db);
         }
     }
@@ -102,6 +107,16 @@ public class    CategoryTable {
         return cname;
     }
 
+    public int CheckDb()
+    {
+        //SQLiteDatabase db = table.getWritableDatabase();
+        String count = "SELECT count(*) FROM "+CATEGORY_TABLE;
+        Cursor mcursor = mDb.rawQuery(count, null);
+        mcursor.moveToFirst();
+        int icount = mcursor.getInt(0);
+        return icount;
+    }
+
     public List<String> getAllCategories(){
         List<String> labels = new ArrayList<String>();
 
@@ -135,4 +150,6 @@ public class    CategoryTable {
         Log.d("Success","Added");
         return mDb.insert(CATEGORY_TABLE, null,cv);
     }
+
+
 }

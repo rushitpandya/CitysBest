@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
+import com.cs442.group3.citysbest.AddCategory;
 import com.cs442.group3.citysbest.R;
 
 public class BaseActivity extends AppCompatActivity {
@@ -23,7 +24,7 @@ public class BaseActivity extends AppCompatActivity {
 
     protected ListView mDrawerList;
 
-    protected String[] listArray = { "Vendor Registration", "Vendor Login", "Category"};
+    protected String[] listArray = { "Vendor Registration", "Vendor Login", "Categories","Add Category"};
 
     protected static int position;
 
@@ -138,10 +139,10 @@ public class BaseActivity extends AppCompatActivity {
             case 2:
                 startActivity(new Intent(this, HomeScreen.class));
                 break;
-           /* case 3:
-                startActivity(new Intent(this, StoreList.class));
+            case 3:
+                startActivity(new Intent(this, AddCategory.class));
                 break;
-            case 4:
+           /* case 4:
                 startActivity(new Intent(this, StoreDetails.class));
                 break;
 */

@@ -80,6 +80,14 @@ RegistrationActivity extends BaseActivity {
                 selectedImage = data.getData();
                 ImageView imgView = (ImageView) findViewById(R.id.imgView);
                 imgView.setImageURI(selectedImage);
+                InputStream iStream = null;
+                try {
+                    iStream = getContentResolver().openInputStream(selectedImage);
+                    inputData = Utils.getBytes(iStream);
+                    Log.d("blob",inputData+"");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
             else
             {
@@ -144,7 +152,7 @@ RegistrationActivity extends BaseActivity {
         // added this
         // added this
         // added this
-        selectedImage = Uri.parse("android.resource://com.cs442.group3.citysbest/drawable/image1");
+       // selectedImage = Uri.parse("android.resource://com.cs442.group3.citysbest/drawable/image1");
         // added this
         // added this
         // added this
@@ -173,13 +181,7 @@ RegistrationActivity extends BaseActivity {
          String contactno=_numberText.getText().toString();
          String address=_addressText.getText().toString();
          String hours=_hoursText.getText().toString();
-         InputStream iStream = null;
-        try {
-            iStream = getContentResolver().openInputStream(selectedImage);
-             inputData = Utils.getBytes(iStream);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
                         StoreTable storetable= new StoreTable(getApplicationContext());
                         storetable.open();
                         int s_id=(int)storetable.addNewStore(name,address,Double.parseDouble(contactno),c_id,hours,inputData);

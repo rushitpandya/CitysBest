@@ -35,6 +35,25 @@ public class HomeScreen extends BaseActivity   {
 
         categoryTable = new CategoryTable(getApplicationContext());
         categoryTable.open();
+      /*  if(categoryTable.CheckDb()  < 1)
+        //{
+            byte[] food="[B@4554f22".getBytes();
+            byte[] insurance="[B@509f4a5".getBytes();
+            byte[] car="[B@a65a07a".getBytes();
+            byte[] clothing="[B@b484c88".getBytes();
+            byte[] electronic="[B@c86b02b".getBytes();
+            byte[] shoe="[B@e4a3621".getBytes();
+            byte[] coffee="[B@9d4a46".getBytes();
+
+            categoryTable.AddNew("Food",food);
+            categoryTable.AddNew("Clothes",clothing);
+            categoryTable.AddNew("Shoes",shoe);
+            categoryTable.AddNew("Coffee",coffee);
+            categoryTable.AddNew("Electronics",electronic);
+            categoryTable.AddNew("Cars & Repairing",car);
+            categoryTable.AddNew("Insurance",insurance);
+        }*/
+
         Cursor cursor = categoryTable.getAllCategoriesCursor();
         cursor.moveToFirst();
         ListView yourListView = (ListView) findViewById(R.id.client_category);
