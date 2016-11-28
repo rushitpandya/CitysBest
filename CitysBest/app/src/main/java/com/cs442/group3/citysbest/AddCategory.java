@@ -1,6 +1,7 @@
 package com.cs442.group3.citysbest;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -83,12 +84,20 @@ public class AddCategory extends BaseActivity {
                     && null != data) {
                 selectedImage = data.getData();
                 //ImageView imgView = (ImageView) findViewById(R.id.v_edit_product_image1);
+                // Drawable myDrawable = getResources().getDrawable(R.drawable.logo);
+                // Uri uri = Uri.parse("android.resource://com.cs442.group3.citysbest/drawable/logo");
+                // Mohsin: change to setImageURI(selectedImage) after testing
                 _imgView.setImageURI(selectedImage);
             }
             else
             {
                 Toast.makeText(this, "You haven't picked Image",
                         Toast.LENGTH_LONG).show();
+
+//                // Mohsin: remove these lines
+//                Uri uri = Uri.parse("android.resource://com.cs442.group3.citysbest/drawable/logo");
+//                selectedImage = uri;
+//                _imgView.setImageURI(uri);
             }
         } catch (Exception e) {
             Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG)

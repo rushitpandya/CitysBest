@@ -5,6 +5,7 @@ import android.content.pm.PackageInstaller;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -47,6 +48,12 @@ public class VendorStoreDetails extends VendorBaseActivity {
         contact=c.getLong(c.getColumnIndex(StoreTable.STORE_CONTACT))+"";
         c_id=c.getInt(c.getColumnIndex(StoreTable.STORE_CATEGORY_ID));
         image=c.getBlob(c.getColumnIndex(StoreTable.STORE_IMAGE));
+        if(image == null) {
+            Log.d("MUCK", "MUCK");
+        }
+        if(img == null) {
+            Log.d("YUCK", "YUCK");
+        }
         img.setImageBitmap(Utils.getImage(image));
         CategoryTable categorytable=new CategoryTable(this);
         categorytable.open();

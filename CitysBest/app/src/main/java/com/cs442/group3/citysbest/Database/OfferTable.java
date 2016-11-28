@@ -28,7 +28,7 @@ public class OfferTable {
 
     private static final String DATABASE_NAME = "CitysBest";
     public static final String OFFER_TABLE = "Offer";
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 9;
 
     private final Context mCtx;
 

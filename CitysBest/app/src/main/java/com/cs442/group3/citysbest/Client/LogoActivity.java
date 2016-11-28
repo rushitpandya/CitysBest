@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 import com.cs442.group3.citysbest.R;
 
@@ -13,6 +16,15 @@ public class LogoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logo);
+
+        ImageView myImageView= (ImageView)findViewById(R.id.imgLogo);
+        Animation myFadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein);
+        myImageView.startAnimation(myFadeInAnimation); //Set animation to your ImageView
+
+//        ImageView myImageView2= (ImageView)findViewById(R.id.skylineimg);
+//        Animation myFadeInAnimation2 = AnimationUtils.loadAnimation(this, R.anim.fadein);
+//        myImageView2.startAnimation(myFadeInAnimation2); //Set animation to your ImageView
+
 
         new Handler().postDelayed(new Runnable() {
 

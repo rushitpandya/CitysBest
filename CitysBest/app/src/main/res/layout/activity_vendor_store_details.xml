@@ -25,7 +25,8 @@
         <TableRow>
             <TextView
                 android:text="Store Name"
-                android:padding="3dip" />
+                android:padding="3dip"
+                android:textStyle="normal|bold" />
 
             <TextView
                 android:id="@+id/v_store_name"
@@ -38,7 +39,8 @@
         <TableRow>
             <TextView
                 android:text="Store Address"
-                android:padding="3dip" />
+                android:padding="3dip"
+                android:textStyle="normal|bold" />
             <TextView
                 android:id="@+id/v_store_address"
                 android:gravity="left"
@@ -50,7 +52,8 @@
         <TableRow>
             <TextView
                 android:text="Store Timings"
-                android:padding="3dip" />
+                android:padding="3dip"
+                android:textStyle="normal|bold" />
             <TextView
                 android:id="@+id/v_store_timings"
                 android:gravity="left"

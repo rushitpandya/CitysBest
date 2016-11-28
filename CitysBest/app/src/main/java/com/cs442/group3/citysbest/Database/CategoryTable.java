@@ -27,7 +27,7 @@ public class    CategoryTable {
 
     private static final String DATABASE_NAME = "CitysBest";
     public static final String CATEGORY_TABLE = "Category";
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 9;
 
     private final Context mCtx;
 

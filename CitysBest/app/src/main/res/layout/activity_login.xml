@@ -52,8 +52,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
-        android:text="Not a member? Join with us"
+        android:text="Not a member? Join us!"
         android:gravity="center"
-        android:textSize="16dip"/>
+        android:textSize="16dip"
+        android:textStyle="normal|bold" />
 
 </LinearLayout>

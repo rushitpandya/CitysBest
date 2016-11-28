@@ -1,5 +1,8 @@
 package com.cs442.group3.citysbest.Client;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -7,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.CalendarContract;
 import android.provider.MediaStore;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -93,6 +97,22 @@ RegistrationActivity extends BaseActivity {
             {
                 Toast.makeText(this, "You haven't picked Image",
                         Toast.LENGTH_LONG).show();
+
+//                // Mohsin: remove these lines
+//
+//                ImageView imgView = (ImageView) findViewById(R.id.imgView);
+//                Uri uri = Uri.parse("android.resource://com.cs442.group3.citysbest/drawable/logo");
+//                selectedImage = uri;
+//                imgView.setImageURI(uri);
+//                InputStream iStream = null;
+//                try {
+//                    iStream = getContentResolver().openInputStream(selectedImage);
+//                    inputData = Utils.getBytes(iStream);
+//                    Log.d("blob",inputData+"");
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//                // Mohsin: remove these lines
             }
         } catch (Exception e) {
             Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG)
@@ -142,23 +162,6 @@ RegistrationActivity extends BaseActivity {
         }
         });
 
-        // YUP THIS IS A CHANGE!!!
-        // added this
-        // added this
-        // added this
-        // REMOVE THIS ON DEMO!!!!
-        // added this
-        // added this
-        // added this
-        // added this
-        // added this
-       // selectedImage = Uri.parse("android.resource://com.cs442.group3.citysbest/drawable/image1");
-        // added this
-        // added this
-        // added this
-        // added this
-        // added this
-
     }
 
     public void signup() {
@@ -192,6 +195,21 @@ RegistrationActivity extends BaseActivity {
                         onSignupSuccess();
                         progressDialog.dismiss();
 
+        Intent intent = new Intent(this, RegistrationActivity.class);
+        PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        Notification n  = new Notification.Builder(this)
+                .setContentTitle("Thank you for registering!")
+                .setContentText("You are now in CityBest's Vendor List.")
+                .setSmallIcon(R.drawable.logo)
+                .setContentIntent(pIntent)
+                .setAutoCancel(true).build();
+
+
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        notificationManager.notify(0, n);
     }
 
     public void onSignupSuccess() {
