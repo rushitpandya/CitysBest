@@ -11,6 +11,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dip">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Offer Details"
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        />
 
 
     <android.support.design.widget.TextInputLayout
@@ -34,7 +43,7 @@
         <EditText android:id="@+id/v_add_offer_oldprice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textCapWords"
+            android:inputType="numberDecimal"
             android:hint="Offer Old Price"
             />
     </android.support.design.widget.TextInputLayout>
@@ -47,7 +56,7 @@
         <EditText android:id="@+id/v_add_offer_newprice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textCapWords"
+            android:inputType="numberDecimal"
             android:hint="Offer New Price"
             />
     </android.support.design.widget.TextInputLayout>
@@ -72,6 +81,8 @@
         android:layout_height="wrap_content"
         android:onClick="setDate"
         android:text="Pick Date"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
         android:layout_gravity="center_horizontal"/>
 
     <TextView
@@ -92,11 +103,14 @@
 
     <Button
         android:id="@+id/o_add_image_upload"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="loadImageFromGallery"
-        android:text="Change Picture" >
+        android:text="Change Picture"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        >
     </Button>
 
     <Button

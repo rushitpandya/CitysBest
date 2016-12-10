@@ -9,7 +9,7 @@ import com.cs442.group3.citysbest.Client.LoginActivity;
 
 import java.util.HashMap;
 
-public class   SessionManager {
+public class SessionManager {
     // Shared Preferences
     SharedPreferences pref;
 

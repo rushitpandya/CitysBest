@@ -74,6 +74,11 @@ RegistrationActivity extends BaseActivity {
         startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
     }
 
+    public void Login(View v)
+    {
+        Intent i=new Intent(getApplicationContext(),LoginActivity.class);
+        startActivity(i);
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

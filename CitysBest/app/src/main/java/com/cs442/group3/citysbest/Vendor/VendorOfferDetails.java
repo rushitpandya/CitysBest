@@ -84,20 +84,23 @@ public class VendorOfferDetails extends VendorBaseActivity {
                 LinearLayout.LayoutParams nameparams1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 TextView name = new TextView(this);
                 name.setText(offername);
+                name.setTextColor(getResources().getColor(R.color.colorPrimary));
                 nameparams1.gravity = Gravity.CENTER_HORIZONTAL;
                 name.setLayoutParams(nameparams1);
 
                 LinearLayout.LayoutParams priceparams1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 TextView price = new TextView(this);
-                price.setText(offernewprice+" $. You save "+(cursor.getDouble(cursor
+                price.setText("Price "+offernewprice+" $ Savings "+(cursor.getDouble(cursor
                         .getColumnIndex(OfferTable.OFFER_OLDPRICE))-cursor.getDouble(cursor
                         .getColumnIndex(OfferTable.OFFER_NEWPRICE)))+" $");
+                price.setTextColor(getResources().getColor(R.color.colorPrimary));
                 priceparams1.gravity = Gravity.CENTER_HORIZONTAL;
                 price.setLayoutParams(priceparams1);
 
                 LinearLayout.LayoutParams dateparams1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 TextView date = new TextView(this);
                 date.setText("Expires on "+offerdate);
+                date.setTextColor(getResources().getColor(R.color.primary));
                 dateparams1.gravity = Gravity.CENTER_HORIZONTAL;
                 date.setLayoutParams(dateparams1);
 
@@ -110,17 +113,24 @@ public class VendorOfferDetails extends VendorBaseActivity {
                 Button edit1 = new Button(this);
                 edit1.setText("Edit");
                 edit1.setId(index);
+                edit1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                edit1.setTextColor(getResources().getColor(R.color.white));
                 edit1.setOnClickListener(EditClickListener);
                 Log.d("Edit Id:",edit1.getId()+"");
                 LinearLayout.LayoutParams editbuttonllp1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
+                editbuttonllp1.setMargins(1,0,1,0);
                 edit1.setLayoutParams(editbuttonllp1);
+
                 //edit1.setId();
                 Button delete1 = new Button(this);
                 delete1.setText("Delete");
                 delete1.setId(index);
+                delete1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                delete1.setTextColor(getResources().getColor(R.color.white));
                 delete1.setOnClickListener(DeleteClickListener);
                 Log.d("Delete Id:",delete1.getId()+"");
                 LinearLayout.LayoutParams deletebuttonllp1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
+                deletebuttonllp1.setMargins(1,0,2,0);
                 delete1.setLayoutParams(deletebuttonllp1);
 
                 cll1.addView(edit1);
@@ -173,21 +183,23 @@ public class VendorOfferDetails extends VendorBaseActivity {
                     LinearLayout.LayoutParams nameparams2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                     TextView name2 = new TextView(this);
                     name2.setText(offername2);
+                    name2.setTextColor(getResources().getColor(R.color.colorPrimary));
                     nameparams2.gravity = Gravity.CENTER_HORIZONTAL;
                     name2.setLayoutParams(nameparams2);
 
                     LinearLayout.LayoutParams priceparams2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                     TextView price2 = new TextView(this);
-                    price2.setText(offernewprice2+" $. You save "+(cursor.getDouble(cursor
+                    price2.setText("Price "+offernewprice2+" $ Savings "+(cursor.getDouble(cursor
                             .getColumnIndex(OfferTable.OFFER_OLDPRICE))-cursor.getDouble(cursor
                             .getColumnIndex(OfferTable.OFFER_NEWPRICE)))+" $");
-
+                    price2.setTextColor(getResources().getColor(R.color.colorPrimary));
                     priceparams2.gravity = Gravity.CENTER_HORIZONTAL;
                     price2.setLayoutParams(priceparams2);
 
                     LinearLayout.LayoutParams dateparams2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                     TextView date2 = new TextView(this);
                     date2.setText("Expires on "+offerdate2);
+                    date2.setTextColor(getResources().getColor(R.color.primary));
                     dateparams2.gravity = Gravity.CENTER_HORIZONTAL;
                     date2.setLayoutParams(dateparams2);
 
@@ -200,17 +212,23 @@ public class VendorOfferDetails extends VendorBaseActivity {
                     Button edit2 = new Button(this);
                     edit2.setText("Edit");
                     edit2.setId(index1);
+                    edit2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                    edit2.setTextColor(getResources().getColor(R.color.white));
                     edit2.setOnClickListener(EditClickListener);
                     Log.d("Edit Id:",edit2.getId()+"");
                     LinearLayout.LayoutParams editbuttonllp2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
+                    editbuttonllp2.setMargins(1,0,1,0);
                     edit2.setLayoutParams(editbuttonllp2);
                     //edit1.setId();
                     Button delete2 = new Button(this);
                     delete2.setText("Delete");
                     delete2.setId(index1);
+                    delete2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                    delete2.setTextColor(getResources().getColor(R.color.white));
                     delete2.setOnClickListener(DeleteClickListener);
                     Log.d("Delete Id:",delete2.getId()+"");
                     LinearLayout.LayoutParams deletebuttonllp2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
+                    deletebuttonllp2.setMargins(1,0,2,0);
                     delete2.setLayoutParams(deletebuttonllp2);
 
                     cll2.addView(edit2);

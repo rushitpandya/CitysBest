@@ -10,7 +10,8 @@
         android:layout_height="150px"
         android:src="@drawable/logo"
         android:layout_weight="0"
-        android:layout_gravity="center_horizontal"/>
+        android:scaleType="fitXY"
+        />
     <TextView
         android:id="@+id/categoryname1"
         android:layout_width="wrap_content"

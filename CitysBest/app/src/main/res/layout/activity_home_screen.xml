@@ -18,13 +18,25 @@
         android:layout_width="match_parent"
         android:layout_height="400px" />
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Category"
+        android:gravity="left"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold|italic"
+        android:textSize="25dp"
+        android:paddingTop="3dp"
+        />
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/client_category"
         android:entries="@array/category_array"
-        android:layout_marginTop="16dp"
-        android:paddingTop="16dp"
+        android:layout_marginTop="10dp"
+        android:paddingTop="1dp"
         >
 
     </ListView>

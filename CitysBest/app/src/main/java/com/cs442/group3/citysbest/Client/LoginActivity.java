@@ -47,7 +47,7 @@ public class LoginActivity extends BaseActivity {
         txtUsername = (EditText) findViewById(R.id.txtUsername);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
 
-        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
 
 
         // Login button
@@ -117,5 +117,10 @@ public class LoginActivity extends BaseActivity {
 
             }
         });
+    }
+    public void Register(View v)
+    {
+        Intent i=new Intent(getApplicationContext(),RegistrationActivity.class);
+        startActivity(i);
     }
 }

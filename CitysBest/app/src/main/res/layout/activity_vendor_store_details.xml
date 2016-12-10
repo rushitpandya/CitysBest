@@ -17,7 +17,7 @@
         android:layout_marginBottom="24dp"
         android:layout_gravity="center_horizontal" />
 
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:stretchColumns="1"
@@ -26,7 +26,8 @@
             <TextView
                 android:text="Store Name"
                 android:padding="3dip"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                android:textColor="@color/colorPrimary"/>
 
             <TextView
                 android:id="@+id/v_store_name"
@@ -40,20 +41,23 @@
             <TextView
                 android:text="Store Address"
                 android:padding="3dip"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                android:textColor="@color/colorPrimary"/>
             <TextView
                 android:id="@+id/v_store_address"
                 android:gravity="left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="3dip" />
+                android:padding="3dip"
+                />
         </TableRow>
 
         <TableRow>
             <TextView
                 android:text="Store Timings"
                 android:padding="3dip"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                android:textColor="@color/colorPrimary"/>
             <TextView
                 android:id="@+id/v_store_timings"
                 android:gravity="left"
@@ -65,7 +69,9 @@
         <TableRow>
             <TextView
                 android:text="Store Contact Info"
-                android:padding="3dip" />
+                android:padding="3dip"
+                android:textStyle="normal|bold"
+                android:textColor="@color/colorPrimary"/>
             <TextView
                 android:id="@+id/v_store_contact"
                 android:gravity="left"
@@ -76,7 +82,9 @@
         <TableRow>
             <TextView
                 android:text="Category"
-                android:padding="3dip" />
+                android:padding="3dip"
+                android:textStyle="normal|bold"
+                android:textColor="@color/colorPrimary"/>
             <TextView
                 android:id="@+id/v_category"
                 android:gravity="left"

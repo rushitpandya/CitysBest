@@ -33,7 +33,7 @@ public class VendorBaseActivity extends AppCompatActivity {
     /**
      * List item array for navigation drawer items.
      * */
-    protected String[] listArray1 = { "Store Details", "Product Details", "Offers Details", "Manage Details", "Log Out" };
+    protected String[] listArray1 = { "Store Details", "Product Details", "Offers Details", "Manage Account", "Log Out" };
 
     /**
      * Static variable for selected item position. Which can be used in child activity to know which item is selected from the list.
@@ -169,8 +169,8 @@ public class VendorBaseActivity extends AppCompatActivity {
         }
 
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                return true;
+           // case R.id.action_settings:
+             //   return true;
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -182,7 +182,7 @@ public class VendorBaseActivity extends AppCompatActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content view
         boolean drawerOpen = mDrawerLayout1.isDrawerOpen(mDrawerList1);
-        menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
+//        menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
         return super.onPrepareOptionsMenu(menu);
     }
 

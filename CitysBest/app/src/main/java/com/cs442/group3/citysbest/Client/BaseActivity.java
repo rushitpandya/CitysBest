@@ -170,8 +170,8 @@ public class BaseActivity extends AppCompatActivity {
         }
 
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                return true;
+           // case R.id.action_settings:
+             //   return true;
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -183,7 +183,7 @@ public class BaseActivity extends AppCompatActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content view
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-        menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
+        //menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
         return super.onPrepareOptionsMenu(menu);
     }
 

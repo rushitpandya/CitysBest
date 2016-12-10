@@ -4,10 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dip">
+    android:padding="10dip"
+   >
 
+    <LinearLayout
 
-    <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Product Details"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            />
+
+        <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
@@ -28,7 +45,7 @@
         <EditText android:id="@+id/v_edit_product_price1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textCapWords"
+            android:inputType="numberDecimal"
             android:hint="Product Price"
             />
     </android.support.design.widget.TextInputLayout>
@@ -38,6 +55,7 @@
         android:layout_height="wrap_content"
         android:text="Product Image"
         android:textSize="18dip"
+        android:textColor="@color/colorPrimary"
         android:paddingLeft="10px"
         android:layout_marginTop="1dp"
         android:layout_marginBottom="1dp"
@@ -45,29 +63,32 @@
     <ImageView
         android:id="@+id/v_edit_product_image1"
         android:layout_width="wrap_content"
-        android:layout_height="500px"
+        android:layout_height="400px"
         android:layout_gravity="center_horizontal"
         />
 
     <Button
         android:id="@+id/p_edit_image_upload1"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="loadImageFromGallery"
-        android:text="Change Picture" >
+        android:text="Change Picture"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary">
     </Button>
+    </LinearLayout>
     <Button
         android:id="@+id/v_edit_product_btn1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
+
         android:padding="12dp"
         android:background="@color/colorPrimary"
         android:text="Save"
         android:textColor="@color/white"
-        android:layout_weight="0"
+
 
         />
 
